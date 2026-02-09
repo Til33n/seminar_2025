@@ -28,15 +28,15 @@ def handle_json_0(item: Item_0):
     item = jsonable_encoder(item)
     user =       item["user"]
     password =   item["password"]
-    key = 30
-    tmp_key = 100
+    #key = 30
+    #tmp_key = 100
     if(username_lookup("database_2", "users", str(user))):
-        #key = round(random.random() * 10**8)
-        #tmp_key = round(random.random() * 10**8)
+        key = round(random.random() * 10**8)
+        tmp_key = round(random.random() * 10**8)
         if(user == specific_data_lookup("database_2", "users","username",1,user)  and  password == specific_data_lookup("database_2","users","username",2,user)):      
             print(key)
             print(tmp_key)
-            #set_keys("database_2", user, key, tmp_key)
+            set_keys("database_2", user, key, tmp_key)
             return {"user" : user, "key" : key, "tmp_key" : tmp_key}    # LOGIN SUCESS
         else:
             print("False")
@@ -147,8 +147,8 @@ def handle_json_3(item: Item_3 , input: str =""):
     username =      input
     tmp_key =       item["tmp_key"]
     if (tmp_key == str(specific_data_lookup("database_2", "users","username",7, username))):
-        #reset_user_score("database_2", username, 0)                                # resets score of said user in users
-        #delete_user("database_2", "player_scores", username)                       # deletes all traces of said user in player_scores
+        reset_user_score("database_2", username, 0)                                # resets score of said user in users
+        delete_user("database_2", "player_scores", username)                       # deletes all traces of said user in player_scores
         print("score RESET")
         return 204
     
@@ -194,8 +194,8 @@ def handle_json_3(item: Item_5 , input: str =""):
     if(key == actual_key):                                                        # souble security authorization
         if(admin):                                                                # check for admin privileges
             if(user_delete != user):                                              # protectiong from admin deleting himself
-                #delete_user("database_2", "users", user_delete)                  # delete user turned off for testing
-                #delete_user("database_2", "player_scores", user_delete)          # deletes all traces of said user in player_scores
+                delete_user("database_2", "users", user_delete)                  # delete user turned off for testing
+                delete_user("database_2", "player_scores", user_delete)          # deletes all traces of said user in player_scores
                 print("deleted user " + user_delete)
                 return 202
             else:
@@ -229,7 +229,7 @@ def handle_json_3(item: Item_6 , input: str =""):
     actual_key = str(where_key("database_2", str(row_id)))
     #user = (where_tmp_key("database_2","users", tmp_key))[1]                        # current user that is atempting to log_out
     if(key == actual_key):
-        # reset_user_keys("database_2", username, None, None)                        # log_out disabled for testing 
+        reset_user_keys("database_2", username, None, None)                        # log_out disabled for testing 
         # delete key entry with timer in database_t
         print(username + " ---> log_out")
         return 200
