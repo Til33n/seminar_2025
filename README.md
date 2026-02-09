@@ -4,7 +4,8 @@ Pri omenjenem predmetu sem za projekt izdelal preprosto mobilno/spletno aplikaci
 je zelo preprosta in izdelana v programskem okolju Android Studio (mobile_app). Poleg mobilne igre imamo tudi spletno aplikacijo, 
 ta nam služi kot hranilnica igralcev, statistike odigranih iger in administratorsko orodje za upravljanje te statistike. 
 
-mobile_app  -->  back_end  <--  -->  front_end
-                             
+  ----------           ----------      ---->      -----------
+| mobile_app | -----> | back_end |     data      | front_end |
+  ----------    data   ----------    <-----       -----------
 
 
