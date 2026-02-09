@@ -1,0 +1,432 @@
+<html>
+        
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+              p{
+                position: absolute;
+                left: 1250px;
+                top: 0px;
+                }
+              body {
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+              }
+              .topnav {
+                overflow: hidden;
+                background-color: #333;
+                text-align: center;
+              }
+              .topnav a {
+                float: center;
+                color: #f2f2f2;
+                padding: 40px 20px;
+                text-decoration: none;
+                font-size: 20px;
+              }
+              .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+              }
+              .topnav a.active {
+                background-color: #04AA6D;
+                color: white;
+              }
+              .centernav {
+                position: absolute;
+                left: 200px;
+                top: 180px;
+              }
+              h3 { 
+                color: black;
+                text-align: center; 
+                text-decoration: none; 
+                outline-style: solid;
+                outline-color: black;
+              }
+
+              hr {border:1px solid black;
+                  color:black;
+                  font-size:10px;
+                  display:block;
+                  float:left;
+                  width:100%;
+                  display: block; 
+                  position: relative;
+              }
+              h2 {
+                  text-align: center;
+                 }
+              fieldset {
+                  width: 250px;
+                  margin: auto;
+                }
+              menu {
+              
+                position: absolute;
+                left: 200px;
+                top: 180px;
+
+              }
+      </style>
+    </head>
+
+
+    <body style="background-color: #89CEEB">
+
+
+          <h1 style="text-align:center;">Flappy Plane</h1>
+          <h2 style="text-align:center;">Mobile game homepage</h2>
+          <p style="text-align:right;" id="user"></p>
+
+        <div class="topnav">
+          <a href="#" class="button_active" onclick="function_1();">SCORES</a>
+          <a href="#"                       onclick="function_2();">YOUR STATS</a>
+          <a href="#"                       onclick="function_3();" >UPDATE STATS</a>
+          <a href="#"                       onclick="function_4();">RESET SCORE</a>
+          <a href="#"                       onclick="function_5();">DELETE USER</a>
+          <a href="#"                       onclick="function_6();">LOG OUT</a>   
+        </div>
+            
+
+
+        <div>
+                <br><br>
+                <p1 style="text-align:right ;color:rgb(0, 0, 0) ;font-size: 30px;" id="dhtml"></p1>
+        </div>  
+
+
+
+
+      <div class="centernav" id="update_form">
+        <h4>To update your username or/and email, <br>
+          you must choose correct <br> 
+          and enter your current password</h3>
+
+        <form id="update_form" name="update_form" method="POST">
+          <fieldset>
+            <legend>Update:</legend>
+                <input type="radio" 
+                      name="check" 
+                      id="checkbox" 
+                      value="1" checked>
+                <label for="checkbox1">EMAIL</label>
+                <br>
+          
+                <input type="radio" 
+                      name="check" 
+                      id="checkbox" 
+                      value="2">
+                <label for="checkbox2">PASSWORD</label>
+                <br>
+
+                <input type="radio" 
+                      name="check" 
+                      id="checkbox" 
+                      value="3">
+                <label for="checkbox3">BOTH</label>
+            </fieldset> 
+            <br><br>
+
+          <label for="fname">New email adress:</label>
+          <input type="text" id="new_e" name="fname"><br><br>
+          <label for="lname">New password:</label>
+          <input type="password" id="new_p" name="lname"><br><br>
+          <label for="lname">Current password:</label>
+          <input type="password" id="current_p" name="lname"><br><br>
+          <input type="button" value="Submit" onclick="function_3_1()">
+        </form>
+       </div>
+    
+
+
+    <div class="menu" id="myForm">
+      To delete a user,        <br>
+      you need to have         <br>
+      administrative privileges<br>
+                               <br>
+                               <br>
+    <form id="myForm">
+      
+        <select id="selectNumber">
+
+          User to delete -> <option>Choose a user</option>
+
+        </select>
+        <input type="button" id="myForm" value="Submit" onclick="function_5_1()">
+    </form><br><br>
+      Select the user you want to delete<br>
+      and hit the SUBMIT button.
+    </div>  
+
+
+  </body>
+
+
+
+
+    <script type="text/javascript">
+      // Retrieve cookie from client side   #### JWT TOKEN ####
+      var x = localStorage.getItem("user");
+      var y = localStorage.getItem("key");
+      var z = localStorage.getItem("tmp_key");
+      alert("user: " + x + "| key: " + y + "| tmp_key: " + z)
+      document.getElementById('user').innerHTML = "Hello " + x + " ! ";
+      document.getElementById('myForm').style.display = "none";
+      document.getElementById('update_form').style.display = "none";    
+
+      async function function_1() {
+        var url = 'http://192.168.64.18:5000'; 
+      
+        const response = await fetch(url+ "/scores/" + z);
+        tempData = await response.text();
+        console.log(tempData);
+        data = tempData.substring(1, tempData.length-1);
+        data_1 = data.replace(/["']/g, "") 
+        alert(data_1)
+        data_2 = data_1.replace(/],/gi, "*")
+        alert(data_2)
+        data_3 = data_2.replaceAll(",", " - ")
+
+        alert(data_3)  
+        data_4 = data_3.replace(/[\][]/g, '');
+        alert(data_4)
+        data_5 = data_4.replaceAll( "*", '<br>');
+        alert(data_5)
+
+
+        document.getElementById('myForm').style.display = "none";
+        document.getElementById('update_form').style.display = "none";
+        document.getElementById('dhtml').style.display = "block"; 
+
+        document.getElementById('dhtml').innerHTML = "<h3>SCORE "+ " - " + " PLAYER <hr> <br>" + data_5 + "</h3>";
+        //document.getElementById('dhtml').innerHTML =  data_5;
+          }
+
+
+      function function_2() {
+        var url = 'http://192.168.64.18:5000';
+        data = { 
+                    "user" : x, 
+                    "key" :  y
+                    };
+        var jsonData = JSON.stringify(data);
+      
+        // Send data
+        var xhr = new XMLHttpRequest(); 
+        xhr.open("POST", url + "/get_stats");      
+        xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8"); 
+        xhr.send(jsonData)
+
+        // Receive data
+        xhr.onload = function() {
+            let received_data = JSON.parse(this.responseText);
+            alert(typeof(received_data))
+        document.getElementById('myForm').style.display = "none"; 
+        document.getElementById('update_form').style.display = "none";
+        document.getElementById('dhtml').style.display = "block";
+        document.getElementById('dhtml').innerHTML = "<center> Username: "           +   x                        +     "<br>"+ 
+                                                     "Email Adress: "       +   received_data.email               +     "<br>"+
+                                                     "Score: "                +   received_data.score               +     "<br>"+   
+                                                     "Admin credentials: "    +   received_data.admin_privileges    +     "<br></center>";               
+          }
+        alert("YOUR STATS") 
+      }
+      
+      function function_3() { // UPDATE STATS  
+        alert("function_3")
+        document.getElementById('myForm').style.display = "none";
+        document.getElementById('dhtml').style.display = "none";
+        document.getElementById('update_form').style.display = "block";
+      }
+
+            function function_3_1() {    
+              var url = 'http://192.168.64.18:5000';
+              var selection = document.forms["update_form"]["checkbox"].value
+              var updated_email = document.forms["update_form"]["new_e"].value;
+              var updated_password = document.forms["update_form"]["new_p"].value;
+              var current_password = document.forms["update_form"]["current_p"].value;
+              
+              
+              data_3_1 = { 
+                        "key"             : y,               // key
+                        "selection"       : selection,
+                        "updated_email"    : updated_email,
+                        "updated_password" : updated_password,
+                        "current_password" : current_password  
+                       };
+ 
+              var json_Data = JSON.stringify(data_3_1);           // make JSON object
+              
+                  // Send data
+                  var xhr = new XMLHttpRequest(); 
+                  xhr.open("PUT", url + "/update/" + x);      
+                  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8"); 
+                  xhr.send(json_Data)
+
+                  // Recieve response
+                  xhr.onload = function() {
+                  let response = JSON.parse(this.responseText);
+                  console.log(response)
+                      
+                    if(response == 204) {
+                      console.log("Stats update successful")
+                      alert("STATS UPDATE SUCCESSFULL")
+                      } else if(response == 403) {
+                      console.log("Incorrect password")
+                      alert("INCORRECT PASSWORD")
+                    }else{
+                      console.log("Unathorized access")
+                      alert("UNATHORIZED ACCESS")
+                      }   
+                  }   
+               //document.getElementById("update_form").reset();    // form text doesnt RESET after SUBMIT
+            }
+
+
+      function function_4() {
+        var url = 'http://192.168.64.18:5000';
+  
+        data_4 = { 
+                  "tmp_key"                   : z               // key
+                 };
+
+        var json_Data = JSON.stringify(data_4);           // make JSON object
+
+        // Send data
+        var xhr = new XMLHttpRequest(); 
+        xhr.open("PUT", url + "/reset/" + x);      
+        xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8"); 
+        xhr.send(json_Data)
+
+        // Recieve response
+        xhr.onload = function() {
+        let response = JSON.parse(this.responseText);
+        console.log(response)
+
+        document.getElementById('myForm').style.display = "none";
+        document.getElementById('update_form').style.display = "none";
+        document.getElementById('dhtml').style.display = "block";
+                if (response == 204) {
+                  document.getElementById('dhtml').innerHTML = "<center> Your score was reset </center>";    
+                } else{
+                  document.getElementById('dhtml').innerHTML = "<center> Your score was unable to be reset </center>";    
+                }
+          }
+       }
+
+
+      function function_5() {                             
+        var url = 'http://192.168.64.18:5000';
+  
+        data_5 = { 
+                  "user"                      : x,
+                  "tmp_key"                   : z               
+                 };
+
+        var json_Data = JSON.stringify(data_5);           // make JSON object
+
+        // Send data
+        var xhr = new XMLHttpRequest(); 
+        xhr.open("POST", url + "/delete");      
+        xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8"); 
+        xhr.send(json_Data)
+
+        // Recieve response
+        xhr.onload = function() {
+        let response = JSON.parse(this.responseText);
+        console.log(response)
+
+        res = JSON.parse(response)
+        alert(res.length)
+        alert(res)
+        
+        document.getElementById('update_form').style.display = "none";
+        document.getElementById('dhtml').style.display = "none";
+        document.getElementById('myForm').style.display = "block";
+   
+        var selectElement = document.getElementById('selectNumber')
+        function populateSelectElement (element, array) {
+            var newElement,
+                i;
+            for(i = 0; i < array.length; i += 1) {
+                newElement = document.createElement('option');
+                newElement.textContent = res[i];
+                element.appendChild(newElement);
+            }
+        }
+        populateSelectElement(selectElement, res);
+                  }
+          }
+
+
+            function function_5_1() {
+              
+              var url = 'http://192.168.64.18:5000';
+              var selected_user = document.getElementById('selectNumber').value;      // selected user to be deleted
+
+              data_5_1 = { 
+                        "key"                       : y,
+                        "tmp_key"                   : z               
+                      };
+
+              var json_Data = JSON.stringify(data_5_1);           // make JSON object
+                 // Send data
+              var xhr = new XMLHttpRequest(); 
+              xhr.open("DELETE", url + "/delete/" + selected_user);      // selected user to be deleted
+              xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8"); 
+              xhr.send(json_Data)
+              
+              // Recieve response
+              xhr.onload = function() {
+              let response = JSON.parse(this.responseText);
+              console.log(response)
+              if(response == 202)
+                alert("Delete Request Successful")
+              else if(response == 403)
+                alert("You cant delete yourself")
+              else if(response == 401)
+                alert("No admin privileges")
+              else
+                alert("Unathorized access")
+              }
+            } 
+
+
+
+
+      function function_6() {
+        var url = 'http://192.168.64.18:5000';
+
+        data_6 = { 
+                  "key"                       : y,
+                  "tmp_key"                   : z               
+                };
+
+        var json_Data = JSON.stringify(data_6);           // make JSON object
+
+        // Send data
+        var xhr = new XMLHttpRequest(); 
+        xhr.open("DELETE", url + "/log_out/" + x);      
+        xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8"); 
+        xhr.send(json_Data)
+
+        // Recieve response
+        xhr.onload = function() {
+        let response = JSON.parse(this.responseText);
+        console.log(response)
+        if(response == 200){                              // response to LOG_OUT request and redirect 
+          alert("Log_out successful")
+          // redirect to index.html
+          window.location = url + "/";     
+         }else{
+          alert("Unathorized access")
+          // redirect to main.html
+          window.location = url + "/main/" + z ;     
+         }
+        }
+      } 
+    </script>
+
+ </html>
