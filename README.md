@@ -38,12 +38,18 @@ Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (API endpoints):
   Ročno generirani piškotek (Ang. manually generated token). Po končani avtentikaciji, API pošlje podatke uporabnika ("user") z njegovima ključema ("key" in "tmp_key") nazaj na 
   front_end (inde_2.html), ki te podatke shrani v lokalni spomin browserja (Ang. Local storage) pravkar avtenticiranega uporabnika.
   
+  # 3 GET
+  Na podlagi uspešne avtentikacije, generiranja ključev, logiranja uporabnika in povratne informacije prejšnega API-ja (# 2) k "front_end", ga "index_2.html" preusmeri na novi API GET (# 3).
+  Ta nam na podlagi začasnega ključa (če je seveda pravilen) poda novo datoteko "main_2.html" in uporabnika po uspešnem logiranju preusmeri na njegovo domačo stran.
   
+  # 4 GET
+  Podobno kot zgornji primer, tukaj na podlagi pravilnega začasnega ključa ("tmp_key") preverjamo avtentikacijo uporabnikove zahteve na naš Uvicorn strežnik. Če ključ ni pravilen ali mankajoč,
+  se bo zahteva v vsakem primeru zavrnala in preusmerilo na osnovno stran za logiranje.
+
+  # 5 POST
+  Ta API na podlagi poslane zahteve uporabnika (Ang. Client) posreduje osnovne podatke kot so email naslov, trenutni dosežek uporabnika itd. Ampak podobno kot v prejšnih primerih, na podlagi
+  unikatnega ključa (Ang. Key) opravi avtentikacijo uporabnika in če je pozitivni odziv posreduje omenjene podatke na "main_2.html" spletno stran za prikaz. 
   
-  # 3 fdsfds
-  
-  # 4 fdsfdss
-  # 5 dfsfsdsdf
   # 6
   
   # 7
