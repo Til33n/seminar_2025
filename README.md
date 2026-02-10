@@ -37,6 +37,8 @@ Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (API endpoints):
   gesla ("password") omenjenega uporabnika in če je pozitivna, naključno generirana ključa shrani v podatkovno bazo pravkar logiranjega uporabnika. 
   Ročno generirani piškotek (Ang. manually generated token). Po končani avtentikaciji, API pošlje podatke uporabnika ("user") z njegovima ključema ("key" in "tmp_key") nazaj na 
   front_end (inde_2.html), ki te podatke shrani v lokalni spomin browserja (Ang. Local storage) pravkar avtenticiranega uporabnika.
+
+  Poleg generiranja ključev, se generira tudi vzporedni časovnik, ki skrbi za časovno obstojnost teh ključev.
   
   # # 3 GET
   Na podlagi uspešne avtentikacije, generiranja ključev, logiranja uporabnika in povratne informacije prejšnega API-ja (# 2) k "front_end", ga "index_2.html" preusmeri na novi API GET (# 3).
@@ -69,8 +71,8 @@ Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (API endpoints):
   imeti tudi administrativne privilegije, da lahko odstranjuje registrirane uporabnike iz spletne aplikacije ("admin" = True).
 
   # # 9 DELETE
-  Logiranje iz spletne aplikacije (Ang. Log out) opravlja API DELETE. Ko se izpišemo iz sistema pobrišemo aktivno sejo (v našem primeru uničimo naša ključa "tmp_key" in "key"). API sprejme 3 podatke ("username" in JSON objekt)
-  opravi njuno avtentikacijo in če je izid pozitiven, uniči uporabnikova naključno generirana ključa in preusmeri na "index_2.html"
+  Odjava iz spletne aplikacije (Ang. Log out) opravlja API DELETE. Ko se odjavimo iz sistema pobrišemo aktivno sejo (v našem primeru uničimo naša ključa "tmp_key" in "key"). API sprejme 3 podatke ("username" 
+  in JSON objekt) opravi njuno avtentikacijo in če je izid pozitiven, uniči uporabnikova naključno generirana ključa in preusmeri na "index_2.html"
   
   
   # # 10 POST
@@ -80,6 +82,9 @@ Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (API endpoints):
   Api se uporabi za ponastavitev gesla. Če uporabnik izgubi geslo, ga lahko re-generira na podlagi avtentikacije preko prvotno posrednovanega EMAIL naslova uporabnika.
 
 
+#### ZAKLJUČEK #####
+
+Seja uporabnika temelji na nakjučno generiranih vrednostih ("key" in "tmp_key"), ki morajo biti časovno omejeni. To pomeni, da ko se ključa generirata, se mora njun čas obstojnosti začeti manjšati (ob predpostavki, da uporabnik vmes ne klikne nič). Če uporabnik med aktivno sejo klikne novo povezavo, se čas obstojnosti ključev resetira. Implementacija časovnika, ki vzporedno odšteva čas vsem izdanim ključom je nujna za uporabnost in varnost spletne aplikacije. Ob odjavi iz sistema se ključa avtomatsko uničita skupaj z pripadajočim časovnikom. Vzporedni časovnik je v fazi izdelave.
 
 
 
