@@ -47,7 +47,7 @@ Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (API endpoints):
   se bo zahteva v vsakem primeru zavrnala in preusmerilo na osnovno stran za logiranje.
 
   # # 5 POST
-  Ta API sprejme dva podatka ("user" in "key")in  na podlagi poslane zahteve uporabnika (Ang. Client) posreduje osnovne podatke kot so email naslov, trenutni dosežek uporabnika itd. Ampak podobno kot v prejšnih primerih, na podlagi
+  Ta API sprejme dva JSON podatka ("user" in "key")in  na podlagi poslane zahteve uporabnika (Ang. Client) posreduje osnovne podatke kot so email naslov, trenutni dosežek uporabnika itd. Ampak podobno kot v prejšnih primerih, na podlagi
   unikatnega ključa (Ang. Key) opravi avtentikacijo uporabnika in če je pozitivni odziv posreduje omenjene podatke na "main_2.html" spletno stran za prikaz. 
   
   # # 6 POST
@@ -55,19 +55,29 @@ Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (API endpoints):
   Na podlagi podanega "user", "key" in "current_password" strežnik opravi avtentikacijo zahteve okrog teh treh podatkov. Na podlagi "selection" ustrezno spremeni podatke v podatkovnih bazah. Na podlagi uspešne zahteve API vrne statusno kodo nazaj
   k "main_2.html".
 
-  # # 7 POST
+  # # 7 PUT
   Pri tem API-ju na podlagi pravilno posredovanega naključnega ključa (podobno kot pri #3 in #4) in uporabniškega imena funkcija opravi avtentikacijo zahteve od "main_2.html" (lahko tudi od kjerkoli) in resetira trenutni dosežek (Ang. score) 
   trenutnega uporabnika.
   
-  # # 8
-  # # 8.1
+  # # 8 POST
+  Ta API je povezan z spodnjim API-jem (# 8.1), skupaj tvorita administrativno orodje za brisanje registriranih uporabnikov iz spletne aplikacije. Prva faza je pridobivanje podatkov vseh registriranih uporabnikov v spletni aplikaciji. 
+  POST API sprejme dva JSON podatka ("user" in "tmp_key") in na podlagi nju opravi avtentikacijo zahteve. Če je avtentikacija pozitivna, posreduje seznam registriranih uporabnikov k "main_2.html" (pošlje na "fornt end").
+  
+  # # 8.1 DELETE
 
 
 
   
-  # 9
-  # 10
-  # 11
+  # # 9 DELETE
+
+
+
+
+
+
+  
+  # # 10 POST
+  # # 11 PUT
 
 
 
