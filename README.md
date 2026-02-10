@@ -51,13 +51,20 @@ Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (API endpoints):
   unikatnega ključa (Ang. Key) opravi avtentikacijo uporabnika in če je pozitivni odziv posreduje omenjene podatke na "main_2.html" spletno stran za prikaz. 
   
   # # 6 POST
-  Funkcija tega API-ja nam omogoča aktivno spremembo naših podatkov kot so zamenjava email naslova, sprememba gesla in podobno. API kot vidimo sprejme 6 podatkov ("key","selection","updated_email","updated_password" in "current_password"  
+  Funkcija tega API-ja nam omogoča aktivno spremembo naših podatkov kot so posodobitev email naslova, sprememba gesla in podobno. API kot vidimo sprejme 6 podatkov ("key","selection","updated_email","updated_password" in "current_password").
+  Na podlagi podanega "user", "key" in "current_password" strežnik opravi avtentikacijo zahteve okrog teh treh podatkov. Na podlagi "selection" ustrezno spremeni podatke v podatkovnih bazah. Na podlagi uspešne zahteve API vrne statusno kodo nazaj
+  k "main_2.html".
+
+  # # 7 POST
+  Pri tem API-ju na podlagi pravilno posredovanega naključnega ključa (podobno kot pri #3 in #4) in uporabniškega imena funkcija opravi avtentikacijo zahteve od "main_2.html" (lahko tudi od kjerkoli) in resetira trenutni dosežek (Ang. score) 
+  trenutnega uporabnika.
+  
+  # # 8
+  # # 8.1
+
 
 
   
-  # 7
-  # 8
-  # 8.1
   # 9
   # 10
   # 11
