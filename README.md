@@ -26,11 +26,14 @@ Za "back end" imamo tri datoteke:
 
   Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (endpoints):
   
-  #1
-  #2
-  #3
-  #4
-  #5
+  #1 fdsdfs
+  
+  #2 dfdgf
+  
+  #3 fdsfds
+  
+  #4 fdsfdss
+  #5 dfsfsdsdf
   #6
   #7
   #8
