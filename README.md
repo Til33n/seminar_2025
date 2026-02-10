@@ -8,17 +8,19 @@ ob detekciji ustavi igro in pošlje igralčev dosežek na zalednji del spletne a
 predvsem pogramski jezik HTML (ta poskrbi za vizualni del spletne strani), imamo pa tudi dinamičen jezik JavaScript (ta obdeluje 
 JSON podatke in podobno). Spletni strežnik Uvicorn, ki je ASGI spletni strežnik implementiran v Python jeziku, pa poganja naš "back_end". 
 
+#### 
+
 
 #### front_end ####
 Za "front end" imamo (trenutno) dve datoteki: 
-- "index.html" se uporablja za logiranje in sicer vnos uporabniškega imena (Ang. username) in gesla (Ang. password)
+- "index.html" se uporablja za logiranje in sicer vnos uporabniškega imena (Ang. username) in gesla (Ang. password).
 - "main_2.html" pa predstavlja osnovno spletno domačo stran igralčeve statistike, urejanja in njegovih podatkov. 
 
 #### back_end ####
 Za "back end" imamo tri datoteke:
-- "server_2.py" na njej teče glavni spletni strežnik z vsemi GET, PUT, POST, DELETE končnimi točkami (Ang. endpoints)
-- "database_main.py" vsebuje vse funkcije za povezavo, vnos, izbris in manipulacijo podatkov igralcev in podobno 
-- "database_2.db" predstavlja podatkovno bazo 
+- "server_2.py" na njej teče glavni spletni strežnik z vsemi GET, PUT, POST, DELETE končnimi točkami (Ang. endpoints).
+- "database_main.py" vsebuje vse funkcije za povezavo, vnos, izbris in manipulacijo podatkov igralcev in podobno. 
+- "database_2.db" predstavlja našo podatkovno bazo, ki vsebuje vse podatke o igralcih, igranih iger itd.
 
 
 
