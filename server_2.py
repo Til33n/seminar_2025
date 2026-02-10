@@ -80,8 +80,8 @@ def handle_json_1(item: Item_1):
     print(user)
     print(key)
     print(type(user))
-    if(30 == specific_data_lookup("database_2", "users","username",6, user)):
-    #if(key == specific_data_lookup("database_2", "users","username",6, user)):
+    #if(30 == specific_data_lookup("database_2", "users","username",6, user)):
+    if(key == specific_data_lookup("database_2", "users","username",6, user)):
         print("its working")
         email = specific_data_lookup("database_2", "users","username",3,user)
         score = specific_data_lookup("database_2", "users","username",4,user)
@@ -268,7 +268,7 @@ class Item_8(BaseModel):
     email:       str
     password:    str
     
-@app.post("/reset")
+@app.put("/reset")
 def handle_json_0(item: Item_8):
     item = jsonable_encoder(item)
     username =     item["username"]
