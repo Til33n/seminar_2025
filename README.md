@@ -24,9 +24,12 @@ Za "back end" imamo tri datoteke:
 - "database_2.db" predstavlja našo podatkovno bazo, ki vsebuje vse podatke o igralcih, igranih iger itd.
 
 
-  Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (endpoints):
+Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (endpoints):
   
   #1 fdsdfs
+
+
+
   
   #2 dfdgf
   
@@ -35,6 +38,7 @@ Za "back end" imamo tri datoteke:
   #4 fdsfdss
   #5 dfsfsdsdf
   #6
+  
   #7
   #8
   #8.1
