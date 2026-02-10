@@ -74,8 +74,10 @@ Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (API endpoints):
   
   
   # # 10 POST
+  Api se uporabi za proceduro registracije novega računa.
+  
   # # 11 PUT
-
+  Api se uporabi za ponastavitev gesla. Če uporabnik izgubi geslo, ga lahko re-generira na podlagi avtentikacije preko prvotno posrednovanega EMAIL naslova uporabnika.
 
 
 
