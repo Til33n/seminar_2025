@@ -26,26 +26,31 @@ Za "back end" imamo tri datoteke:
 
 Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (API endpoints):
   
-  #1 GET
+  # 1 GET
   Uporabnik odpre spletno stran na referenčnem IP naslovu (npr. http:192.168.64.15/5000), ta prvi API mu vrne spletno stran 
-  "index.html", v katero vnese svoje podatke avtentikacije
+  "index.html", katera mu omogoča vnos uporabniškega imena in gesla za psotopek avtentikacije in logiranja v sistem.
 
-
+  # 2 POST
+  API ob proceduri logiranja sprejme dva podatka ("user" in "password").V Python funckiji API-ja POST nato preveri, če "user" obstaja. Če dobi 
+  pozitiven odziv, generira za omenjenega "user"-ja njegov pripadajoči naključni ključ ("key") in začasni ključ ("tmp_ključ"). Nato sledi še avtentikacija 
+  gesla ("password") omenjenega uporabnika in če je pozitivna, naključno generirana ključa shrani v podatkovno bazo pravkar logiranjega uporabnika. 
+  Ročno generirani piškotek (Ang. manually generated token). Po končani avtentikaciji, API pošlje podatke uporabnika ("user") z njegovima ključema ("key" in "tmp_key") nazaj na 
+  front_end (inde_2.html), ki te podatke shrani v lokalni spomin browserja (Ang. Local storage) pravkar avtenticiranega uporabnika.
   
-  #2 dfdgf
   
-  #3 fdsfds
   
-  #4 fdsfdss
-  #5 dfsfsdsdf
-  #6
+  # 3 fdsfds
   
-  #7
-  #8
-  #8.1
-  #9
-  #10
-  #11
+  # 4 fdsfdss
+  # 5 dfsfsdsdf
+  # 6
+  
+  # 7
+  # 8
+  # 8.1
+  # 9
+  # 10
+  # 11
 
 
 
