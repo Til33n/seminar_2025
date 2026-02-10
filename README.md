@@ -64,10 +64,10 @@ Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (API endpoints):
   POST API sprejme dva JSON podatka ("user" in "tmp_key") in na podlagi nju opravi avtentikacijo zahteve. Če je avtentikacija pozitivna, posreduje seznam registriranih uporabnikov k "main_2.html" (pošlje na "fornt end").
   
   # # 8.1 DELETE
+  Brisanje registriranih uporabnikov pa opravlja API DELETE. Pri takšnih API-jih je pa verodostojnost in avtentikacija zelo pomembna, saj lahko ne-avtoriziran dostop povzroči precej škode in podobno. Tukaj API sprejme dva objekta JSON in sicer
+  ("key" in "tmp_key"). Ti dve nakjlučno generirani vrednosti se morata v podatkovni bazi medsebojno ujemati in tudi obstajati, drugače bo strežnik zavrnil zahtevo. Če se medsebojno ujemata, mora hkrati uporabnik, ki je tudi lastnik tih dveh ključeh 
+  imeti tudi administrativne privilegije, da lahko odstranjuje registrirane uporabnike iz spletne aplikacije ("admin" = True).
 
-
-
-  
   # # 9 DELETE
 
 
