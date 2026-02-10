@@ -69,12 +69,9 @@ Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (API endpoints):
   imeti tudi administrativne privilegije, da lahko odstranjuje registrirane uporabnike iz spletne aplikacije ("admin" = True).
 
   # # 9 DELETE
-
-
-
-
-
-
+  Logiranje iz spletne aplikacije (Ang. Log out) opravlja API DELETE. Ko se izpišemo iz sistema pobrišemo aktivno sejo (v našem primeru uničimo naša ključa "tmp_key" in "key"). API sprejme 3 podatke ("username" in JSON objekt)
+  opravi njuno avtentikacijo in če je izid pozitiven, uniči uporabnikova naključno generirana ključa in preusmeri na "index_2.html"
+  
   
   # # 10 POST
   # # 11 PUT
