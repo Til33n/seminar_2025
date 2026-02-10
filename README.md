@@ -24,10 +24,11 @@ Za "back end" imamo tri datoteke:
 - "database_2.db" predstavlja našo podatkovno bazo, ki vsebuje vse podatke o igralcih, igranih iger itd.
 
 
-Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (endpoints):
+Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (API endpoints):
   
-  #1 fdsdfs
-
+  #1 GET
+  Uporabnik odpre spletno stran na referenčnem IP naslovu (npr. http:192.168.64.15/5000), ta prvi API mu vrne spletno stran 
+  "index.html", v katero vnese svoje podatke avtentikacije
 
 
   
