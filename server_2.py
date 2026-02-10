@@ -12,14 +12,14 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 random_number = 0
 
-######  GET  #######
+######  GET  #######                                                # 1
 @app.get("/")   # MAIN  index  PAGE     
 async def root_1():
     return FileResponse('index_2.html', media_type='text/html')
 
 
 
-######  POST  #######           
+######  POST  #######                                               # 2
 class Item_0(BaseModel):
     user:       str
     password:   str 
@@ -47,7 +47,7 @@ def handle_json_0(item: Item_0):
 
 
 
-######  GET  #######        +tmp_key
+######  GET  #######        +tmp_key                            # 3
 @app.get("/main/{tmp_key}")   #  MAIN USER PAGE
 async def root_2(tmp_key: str = ""):
     if(tmp_key_lookup("database_2", "users", str(tmp_key))):
@@ -56,7 +56,7 @@ async def root_2(tmp_key: str = ""):
         return FileResponse('index_2.html', media_type='text/html')
 
 
-######  GET  #######       +tmp_key
+######  GET  #######       +tmp_key                             # 4
 @app.get("/scores/{tmp_key}")   #  PLAYERS SCORES    
 async def root_3(tmp_key: str = ""):
     print(tmp_key)
@@ -68,7 +68,7 @@ async def root_3(tmp_key: str = ""):
 
 
 
-#####  POST  #######           
+#####  POST  #######                                           # 5
 class Item_1(BaseModel):
     user:  str
     key:   str 
@@ -93,7 +93,7 @@ def handle_json_1(item: Item_1):
 
 
 
-######  PUT  #######                        
+######  PUT  #######                                           # 6                   
 class Item_2(BaseModel):  
     key:                str
     selection:          str
@@ -137,7 +137,7 @@ def handle_json_3(item: Item_2 , input: str =""):
         return  401     # UNATHORIZED ACCESSS
 
 
-######  PUT  #######
+######  PUT  #######                                           # 7
 class Item_3(BaseModel):  
     tmp_key:        str
     
@@ -156,7 +156,7 @@ def handle_json_3(item: Item_3 , input: str =""):
 
 
 
-#####################################################   function_5     
+#####################################################   function_5                 # 8
 #####  POST  #######           
 class Item_4(BaseModel):
     user:  str
@@ -177,7 +177,7 @@ def handle_json_1(item: Item_4):
         print(users_list)
         return array_users
 
-######  DELETE  #######                         function_5_1                    
+######  DELETE  #######                         function_5_1                       # 8.1     
 class Item_5(BaseModel):  
     key:                str
     tmp_key:            str  
@@ -213,7 +213,7 @@ def handle_json_3(item: Item_5 , input: str =""):
 
 
 
-#####################################################    function_6     
+#####################################################    function_6                # 9
 #####  DELETE  #######      
       
 class Item_6(BaseModel):  
@@ -246,7 +246,7 @@ def handle_json_3(item: Item_6 , input: str =""):
 
 
 
-################################################   register procedure
+################################################   register procedure               # 10
 ######  POST  #######                       
 class Item_7(BaseModel):
     username:    str
@@ -261,7 +261,7 @@ def handle_json_0(item: Item_7):
     password =     item["password"]
 
 
-################################################   passsword reset procedure
+################################################   passsword reset procedure        # 11
 ######  PUT  #######                       
 class Item_8(BaseModel):
     username:    str
