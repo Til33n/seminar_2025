@@ -16,9 +16,9 @@ Za "front end" imamo (trenutno) dve datoteki:
 
 #### back_end ####
 Za "back end" imamo tri datoteke:
-- "server_2.py"
-- "database_main.py"
-- "database_2
+- "server_2.py" na njej teče glavni spletni strežnik z vsemi GET, PUT, POST, DELETE končnimi točkami (Ang. endpoints)
+- "database_main.py" vsebuje vse funkcije za povezavo, vnos, izbris in manipulacijo podatkov igralcev in podobno 
+- "database_2.db" predstavlja podatkovno bazo 
 
 
 
