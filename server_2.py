@@ -338,6 +338,7 @@ if __name__ == "__main__":
 
 ######## database_2_1 ########
     #### sessions ####
+        #user TEXT,
         #key INT,
         #tmp_key INT,
         #timer INT
