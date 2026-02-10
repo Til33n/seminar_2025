@@ -80,7 +80,7 @@ Zalednji del (Ang. back_end) vsebuje GET, POST, PUT in DELETE (API endpoints):
 
 #### ZAKLJUČEK #####
 
-Seja uporabnika temelji na nakjučno generiranih vrednostih ("key" in "tmp_key"), ki morajo biti časovno omejeni. To pomeni, da ko se ključa generirata, se mora njun čas obstojnosti začeti manjšati (ob predpostavki, da uporabnik vmes ne klikne nič). Če uporabnik med aktivno sejo klikne novo povezavo, se čas obstojnosti ključev resetira. Implementacija časovnika, ki vzporedno odšteva čas vsem izdanim ključom je nujna za uporabnost in varnost spletne aplikacije. Ob odjavi iz sistema se ključa avtomatsko uničita skupaj z pripadajočim časovnikom. Vzporedni časovnik je v fazi izdelave.
+Seja uporabnika temelji na nakjučno generiranih ključah ("key" in "tmp_key"). Ključa morata biti časovno omejena. To pomeni, da ko se ključa generirata, se mora njun čas obstojnosti začeti zmanjševati (ob predpostavki, da uporabnik vmes ne klikne nič). Če uporabnik med aktivno sejo klikne novo povezavo, se čas obstojnosti ključev resetira. Implementacija časovnika, ki vzporedno odšteva čas vsem izdanim ključom je nujna za uporabnost in varnost spletne aplikacije. Ob odjavi iz sistema se ključa avtomatsko uničita skupaj z pripadajočim časovnikom. Vzporedni časovnik je v fazi izdelave.
 
 
 
